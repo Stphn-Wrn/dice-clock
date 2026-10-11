@@ -74,7 +74,7 @@ jobs:
 
       - name: Create ZIP archive
         run: |
-          zip -r dice-clock.zip . -x "*.git*" ".github/workflows/*" "node_modules/*" "tests/*" "package.json" ".gitignore" ".DS_Store" "site.json"
+          zip -r dice-clock.zip . -x "*.git*" ".github/workflows/*" "node_modules/*" "tests/*" "package.json" ".gitignore" ".DS_Store" "site.json" "docs/*"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2

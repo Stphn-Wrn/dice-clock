@@ -3,6 +3,22 @@
   "platform": "foundry",
   "icon": "fa-hourglass-half",
   "order": 10,
+  "images": [
+    {
+      "src": "docs/clock.png",
+      "alt": {
+        "fr": "Une horloge de trois dés avec l'heure et les boutons d'action du MJ",
+        "en": "A three-dice clock with the time and the GM's action buttons"
+      }
+    },
+    {
+      "src": "docs/editor.jpg",
+      "alt": {
+        "fr": "L'éditeur d'horloge : dés, heure, visibilité, message final et actions",
+        "en": "The clock editor: dice, time, visibility, final message and actions"
+      }
+    }
+  ],
   "text": {
     "fr": {
       "title": "Horloges à dés",
