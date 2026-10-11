@@ -1,0 +1,60 @@
+{
+  "DICECLOCK": {
+    "DiceClock": {
+      "Title": "Dice Clock",
+      "OpenTool": "Open the Dice Clock",
+      "HourFormat": "{hour}:00",
+      "Expired": "The clock has run out.",
+      "Room": "Room / Floor",
+      "RoomHint": "Search a room / Change floor (-1 point)",
+      "ShortRest": "Short rest",
+      "ShortRestHint": "Short rest (-1 hour)",
+      "Adjust": "Adjust",
+      "Reset": "Reset",
+      "ReadOnly": "The GM controls the clock.",
+      "ResetDialog": {
+        "Title": "Reset the clock",
+        "Content": "Reset the clock to its starting state?"
+      },
+      "Chat": {
+        "ResetTitle": "The clock has been reset.",
+        "ResetBody": "It is {hour}. The dice show their maximum value.",
+        "ChimeTitle": "Ding... Dong...",
+        "ChimeBody": "The clock strikes. It is now {hour}."
+      },
+      "DefaultCriticalMessage": "The dice have run out: time is up."
+    },
+    "Settings": {
+      "DiceClockDiceCount": {
+        "Name": "Number of dice",
+        "Hint": "Number of dice used by the clock."
+      },
+      "DiceClockFaces": {
+        "Name": "Faces per die",
+        "Hint": "Number of faces on each die (6 for d6)."
+      },
+      "DiceClockPipMinutes": {
+        "Name": "Minutes per point",
+        "Hint": "Duration in minutes represented by one point (pip) removed."
+      },
+      "DiceClockStartHour": {
+        "Name": "Starting hour",
+        "Hint": "Hour shown at the start of the countdown (18 for 18:00)."
+      },
+      "DiceClockSoundPath": {
+        "Name": "Chime sound",
+        "Hint": "Path to the audio file played on every full hour (e.g. modules/dice-clock/sounds/chime.mp3). Leave empty to disable the sound."
+      },
+      "DiceClockCriticalMessage": {
+        "Name": "Final message",
+        "Hint": "Message sent to chat when all the clock's points are spent."
+      }
+    },
+    "Common": {
+      "Cancel": "Cancel"
+    },
+    "Migration": {
+      "Done": "Dice Clock: your clock and its settings were imported from the SotDL Companion."
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "DICECLOCK": {
+    "DiceClock": {
+      "Title": "Horloge à Dés",
+      "OpenTool": "Ouvrir l'Horloge à Dés",
+      "HourFormat": "{hour}h00",
+      "Expired": "L'horloge est arrivée à son terme.",
+      "Room": "Pièce / Étage",
+      "RoomHint": "Fouiller une pièce / Changer d'étage (-1 point)",
+      "ShortRest": "Repos court",
+      "ShortRestHint": "Repos court (-1 heure)",
+      "Adjust": "Ajustement",
+      "Reset": "Réinitialiser",
+      "ReadOnly": "Le MJ contrôle l'horloge.",
+      "ResetDialog": {
+        "Title": "Réinitialiser l'horloge",
+        "Content": "Remettre l'horloge à son état de départ ?"
+      },
+      "Chat": {
+        "ResetTitle": "L'horloge est remise à zéro.",
+        "ResetBody": "Il est {hour}. Les dés affichent leur valeur maximale.",
+        "ChimeTitle": "Ding... Dong...",
+        "ChimeBody": "L'horloge sonne. Il est maintenant {hour}."
+      },
+      "DefaultCriticalMessage": "Les dés sont épuisés : le temps est écoulé."
+    },
+    "Settings": {
+      "DiceClockDiceCount": {
+        "Name": "Nombre de dés",
+        "Hint": "Nombre de dés utilisés par l'horloge."
+      },
+      "DiceClockFaces": {
+        "Name": "Faces par dé",
+        "Hint": "Nombre de faces de chaque dé (6 pour des d6)."
+      },
+      "DiceClockPipMinutes": {
+        "Name": "Minutes par point",
+        "Hint": "Durée en minutes représentée par un point (pip) retiré."
+      },
+      "DiceClockStartHour": {
+        "Name": "Heure de départ",
+        "Hint": "Heure affichée au début du compte à rebours (18 pour 18h00)."
+      },
+      "DiceClockSoundPath": {
+        "Name": "Son du carillon",
+        "Hint": "Chemin vers le fichier audio joué à chaque heure pleine (ex: modules/dice-clock/sounds/carillon.mp3). Laisser vide pour désactiver le son."
+      },
+      "DiceClockCriticalMessage": {
+        "Name": "Message final",
+        "Hint": "Message envoyé dans le chat lorsque tous les points de l'horloge sont épuisés."
+      }
+    },
+    "Common": {
+      "Cancel": "Annuler"
+    },
+    "Migration": {
+      "Done": "Horloge à dés : votre horloge et ses réglages ont été repris du Compagnon SODL."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "group": "tools",
+  "platform": "foundry",
+  "icon": "fa-hourglass-half",
+  "order": 10,
+  "text": {
+    "fr": {
+      "title": "Horloge à dés",
+      "summary": "Un compte à rebours en dés, piloté par le MJ, qui sonne les heures. Tous systèmes.",
+      "features": [
+        "Points retirés pièce par pièce ou par repos",
+        "Carillon et message dans le chat à chaque heure pleine",
+        "Message final quand les dés sont épuisés",
+        "Dés, faces, durées et son configurables"
+      ]
+    },
+    "en": {
+      "title": "Dice Clock",
+      "summary": "A countdown clock made of dice, run by the GM, that rings the hours. Any system.",
+      "features": [
+        "Points spent room by room or per rest",
+        "Chime and chat message on every full hour",
+        "Final message when the dice run out",
+        "Configurable dice, faces, durations and sound"
+      ]
+    }
+  }
+}
