@@ -2,7 +2,7 @@
   "id": "dice-clock",
   "title": "Dice Clocks",
   "description": "Countdowns made of dice, as many as you need: custom GM buttons, optional time of day with an hourly chime, shared with players or kept for the GM. Works with any system.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "compatibility": {
     "minimum": "11",
     "verified": "14"
@@ -14,7 +14,7 @@
   ],
   "url": "https://github.com/Stphn-Wrn/dice-clock",
   "manifest": "https://raw.githubusercontent.com/Stphn-Wrn/dice-clock/main/module.json",
-  "download": "https://github.com/Stphn-Wrn/dice-clock/releases/download/v1.1.0/dice-clock.zip",
+  "download": "https://github.com/Stphn-Wrn/dice-clock/releases/download/v1.1.1/dice-clock.zip",
   "license": "MIT",
   "esmodules": [
     "src/main.js"
