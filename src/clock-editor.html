@@ -1,0 +1,72 @@
+<form class="dice-clock-editor" autocomplete="off">
+  <div class="form-group">
+    <label>{{localize "DICECLOCK.Editor.Name"}}</label>
+    <input type="text" name="name" value="{{clock.name}}" />
+  </div>
+  <div class="form-group">
+    <label>{{localize "DICECLOCK.Editor.Dice"}}</label>
+    <div class="form-fields">
+      <input type="number" name="diceCount" value="{{clock.diceCount}}" min="1" max="8" step="1" />
+      <span>{{localize "DICECLOCK.Editor.DiceOf"}}</span>
+      <input type="number" name="faces" value="{{clock.faces}}" min="2" max="20" step="1" />
+      <span>{{localize "DICECLOCK.Editor.Faces"}}</span>
+    </div>
+  </div>
+  <p class="notes">{{localize "DICECLOCK.Editor.DiceHint"}}</p>
+
+  <div class="form-group">
+    <label>{{localize "DICECLOCK.Editor.ShowTime"}}</label>
+    <input type="checkbox" name="showTime" {{checked clock.showTime}} />
+  </div>
+  <div class="form-group">
+    <label>{{localize "DICECLOCK.Editor.StartHour"}}</label>
+    <input type="number" name="startHour" value="{{clock.startHour}}" min="0" max="23" step="1" />
+  </div>
+  <div class="form-group">
+    <label>{{localize "DICECLOCK.Editor.PipMinutes"}}</label>
+    <input type="number" name="pipMinutes" value="{{clock.pipMinutes}}" min="1" max="240" step="1" />
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "DICECLOCK.Editor.Visibility"}}</label>
+    <select name="visibility">{{selectOptions visibilityChoices selected=clock.visibility}}</select>
+  </div>
+  <div class="form-group">
+    <label>{{localize "DICECLOCK.Editor.Messages"}}</label>
+    <select name="messages">{{selectOptions messageChoices selected=clock.messages}}</select>
+  </div>
+  <div class="form-group">
+    <label>{{localize "DICECLOCK.Editor.Chime"}}</label>
+    <input type="checkbox" name="chime" {{checked clock.chime}} />
+  </div>
+  <div class="form-group stacked">
+    <label>{{localize "DICECLOCK.Editor.FinalMessage"}}</label>
+    <textarea name="criticalMessage" rows="2">{{clock.criticalMessage}}</textarea>
+  </div>
+
+  <fieldset class="dice-clock-editor-actions">
+    <legend>{{localize "DICECLOCK.Editor.Actions"}}</legend>
+    <p class="notes">{{localize "DICECLOCK.Editor.ActionsHint"}}</p>
+    <div class="dice-clock-action-rows">
+      {{#each clock.actions}}
+      <div class="dice-clock-action-row" data-action-id="{{this.id}}">
+        <input type="text" class="action-label" value="{{this.label}}" placeholder="{{localize 'DICECLOCK.Editor.ActionLabel'}}" />
+        <input type="text" class="action-icon" value="{{this.icon}}" placeholder="fa-door-open" title="{{localize 'DICECLOCK.Editor.ActionIcon'}}" />
+        <input type="number" class="action-amount" value="{{this.amount}}" min="1" step="1" />
+        <select class="action-unit">{{selectOptions ../unitChoices selected=this.unit}}</select>
+        <a class="dice-clock-action-remove" title="{{localize 'DICECLOCK.Delete'}}"><i class="fas fa-trash"></i></a>
+      </div>
+      {{/each}}
+    </div>
+    <button type="button" class="dice-clock-action-add"><i class="fas fa-plus"></i> {{localize "DICECLOCK.Editor.AddAction"}}</button>
+    <template class="dice-clock-action-template">
+      <div class="dice-clock-action-row" data-action-id="">
+        <input type="text" class="action-label" value="" placeholder="{{localize 'DICECLOCK.Editor.ActionLabel'}}" />
+        <input type="text" class="action-icon" value="fa-hourglass-half" title="{{localize 'DICECLOCK.Editor.ActionIcon'}}" />
+        <input type="number" class="action-amount" value="1" min="1" step="1" />
+        <select class="action-unit">{{selectOptions unitChoices selected="point"}}</select>
+        <a class="dice-clock-action-remove" title="{{localize 'DICECLOCK.Delete'}}"><i class="fas fa-trash"></i></a>
+      </div>
+    </template>
+  </fieldset>
+</form>

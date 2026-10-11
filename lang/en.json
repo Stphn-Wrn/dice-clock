@@ -1,60 +1,118 @@
 {
   "DICECLOCK": {
-    "DiceClock": {
-      "Title": "Dice Clock",
-      "OpenTool": "Open the Dice Clock",
-      "HourFormat": "{hour}:00",
-      "Expired": "The clock has run out.",
-      "Room": "Room / Floor",
-      "RoomHint": "Search a room / Change floor (-1 point)",
+    "Title": "Dice Clocks",
+    "OpenTool": "Open the clocks",
+    "Untitled": "Untitled clock",
+    "NewClock": "New clock",
+    "Preset": "Preset for the new clock",
+    "Edit": "Edit",
+    "Delete": "Delete",
+    "GmOnly": "Visible to the GM only",
+    "Adjust": "Adjust",
+    "MinusOne": "Remove one point",
+    "PlusOne": "Give back one point",
+    "Expired": "The clock has run out.",
+    "EmptyGm": "No clock yet. Pick a preset, then click New clock.",
+    "EmptyPlayer": "No clock shared yet.",
+    "PointsLeft": "{remaining} / {total} points",
+    "TimeFormat": {
+      "H24": "{hour}:{minute}",
+      "H12": "{hour}:{minute} {period}"
+    },
+    "Cost": {
+      "Points": "Costs {count} point(s)",
+      "Hours": "Costs {count} hour(s)"
+    },
+    "ResetDialog": {
+      "Title": "Reset the clock",
+      "Content": "Set every die back to its highest value?"
+    },
+    "DeleteDialog": {
+      "Title": "Delete the clock",
+      "Content": "Delete this clock? This cannot be undone."
+    },
+    "Chat": {
+      "ChimeTitle": "{name} chimes",
+      "ChimeBody": "It is now {time}.",
+      "ResetTitle": "{name} has been reset",
+      "EndBody": "The dice have run out: time is up."
+    },
+    "Actions": {
+      "SearchRoom": "Room / Floor",
       "ShortRest": "Short rest",
-      "ShortRestHint": "Short rest (-1 hour)",
-      "Adjust": "Adjust",
-      "Reset": "Reset",
-      "ReadOnly": "The GM controls the clock.",
-      "ResetDialog": {
-        "Title": "Reset the clock",
-        "Content": "Reset the clock to its starting state?"
+      "ExplorationTurn": "Exploration turn",
+      "OneHour": "One hour",
+      "LongRest": "Long rest",
+      "Escalate": "The threat grows",
+      "OnePoint": "One point"
+    },
+    "Presets": {
+      "DeathHouse": {
+        "Name": "Death House",
+        "Final": "A low rumble rises from the walls of the house... The Flesh Mound (Walter) awakens and attacks!"
       },
-      "Chat": {
-        "ResetTitle": "The clock has been reset.",
-        "ResetBody": "It is {hour}. The dice show their maximum value.",
-        "ChimeTitle": "Ding... Dong...",
-        "ChimeBody": "The clock strikes. It is now {hour}."
+      "Torch": {
+        "Name": "Torch",
+        "Final": "The torch goes out. Darkness closes in."
       },
-      "DefaultCriticalMessage": "The dice have run out: time is up."
+      "Day": {
+        "Name": "Day",
+        "Final": "The day is over."
+      },
+      "Threat": {
+        "Name": "Threat",
+        "Final": "The threat comes to pass."
+      },
+      "Custom": {
+        "Name": "Clock",
+        "Final": "The dice have run out: time is up."
+      }
+    },
+    "Editor": {
+      "Title": "Clock: {name}",
+      "Name": "Name",
+      "Dice": "Dice",
+      "DiceOf": "dice with",
+      "Faces": "faces",
+      "DiceHint": "Changing the dice sets the clock back to its maximum.",
+      "ShowTime": "Show the time",
+      "StartHour": "Starting hour",
+      "PipMinutes": "Minutes per point",
+      "Visibility": "Visible to",
+      "VisibilityPlayers": "Everyone (read-only)",
+      "VisibilityGm": "The GM only",
+      "Messages": "Chat messages",
+      "MessagesPublic": "Public",
+      "MessagesGm": "Whispered to the GM",
+      "Chime": "Chime on every full hour",
+      "FinalMessage": "Final message",
+      "Actions": "Actions",
+      "ActionsHint": "The GM's buttons. Each removes points, or hours converted with the minutes per point.",
+      "ActionLabel": "Action name",
+      "ActionIcon": "Font Awesome icon (fa-...)",
+      "AddAction": "Add an action",
+      "UnitPoints": "point(s)",
+      "UnitHours": "hour(s)"
     },
     "Settings": {
-      "DiceClockDiceCount": {
-        "Name": "Number of dice",
-        "Hint": "Number of dice used by the clock."
-      },
-      "DiceClockFaces": {
-        "Name": "Faces per die",
-        "Hint": "Number of faces on each die (6 for d6)."
-      },
-      "DiceClockPipMinutes": {
-        "Name": "Minutes per point",
-        "Hint": "Duration in minutes represented by one point (pip) removed."
-      },
-      "DiceClockStartHour": {
-        "Name": "Starting hour",
-        "Hint": "Hour shown at the start of the countdown (18 for 18:00)."
-      },
-      "DiceClockSoundPath": {
+      "SoundPath": {
         "Name": "Chime sound",
-        "Hint": "Path to the audio file played on every full hour (e.g. modules/dice-clock/sounds/chime.mp3). Leave empty to disable the sound."
+        "Hint": "Audio file played on every full hour, for clocks with the chime on. Leave empty for no sound."
       },
-      "DiceClockCriticalMessage": {
-        "Name": "Final message",
-        "Hint": "Message sent to chat when all the clock's points are spent."
+      "TimeFormat": {
+        "Name": "Time format",
+        "Hint": "How the clocks' time is shown.",
+        "H24": "24-hour (18:40)",
+        "H12": "12-hour (6:40 PM)"
       }
     },
     "Common": {
-      "Cancel": "Cancel"
+      "Cancel": "Cancel",
+      "Confirm": "Confirm",
+      "Save": "Save"
     },
     "Migration": {
-      "Done": "Dice Clock: your clock and its settings were imported from the SotDL Companion."
+      "Done": "Dice Clocks: your clock and its settings were imported from the SotDL Companion."
     }
   }
 }

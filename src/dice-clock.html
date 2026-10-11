@@ -1,47 +1,70 @@
-<div class="dice-clock-widget">
-  <div class="dice-clock-header">
-    <i class="fas fa-clock"></i>
-    <span class="dice-clock-hour {{#if isMidnight}}dice-clock-hour-critical{{/if}}">{{hourLabel}}</span>
+<div class="dice-clock-list">
+  {{#if isGM}}
+  <div class="dice-clock-new">
+    <select class="dice-clock-preset" title="{{localize 'DICECLOCK.Preset'}}">
+      {{#each presets}}
+      <option value="{{this.id}}">{{this.label}}</option>
+      {{/each}}
+    </select>
+    <button type="button" class="dice-clock-add"><i class="fas fa-plus"></i> {{localize "DICECLOCK.NewClock"}}</button>
   </div>
+  {{/if}}
 
-  <div class="dice-clock-dice">
-    {{#each dice}}
+  {{#each clocks}}
+  <section class="dice-clock-card" data-clock-id="{{this.id}}">
+    <header class="dice-clock-card-header">
+      <span class="dice-clock-name">{{this.name}}</span>
+      {{#if this.gmOnly}}<i class="fas fa-eye-slash dice-clock-gm-only" title="{{localize 'DICECLOCK.GmOnly'}}"></i>{{/if}}
+      {{#if ../isGM}}
+      <a class="dice-clock-edit" title="{{localize 'DICECLOCK.Edit'}}"><i class="fas fa-pen"></i></a>
+      <a class="dice-clock-delete" title="{{localize 'DICECLOCK.Delete'}}"><i class="fas fa-trash"></i></a>
+      {{/if}}
+    </header>
+
+    <div class="dice-clock-header">
+      <i class="fas {{this.statusIcon}}"></i>
+      <span class="dice-clock-hour {{#if this.ended}}dice-clock-hour-critical{{/if}}">{{this.status}}</span>
+    </div>
+
+    <div class="dice-clock-dice">
+      {{#each this.dice}}
       <div class="dice-clock-die {{#unless this.visible}}dice-clock-die-empty{{/unless}}">
         {{#if this.visible}}
           {{#if this.icon}}
-            <i class="fas {{this.icon}}"></i>
+          <i class="fas {{this.icon}}"></i>
           {{else}}
-            <span class="dice-clock-die-number">{{this.value}}</span>
+          <span class="dice-clock-die-number">{{this.value}}</span>
           {{/if}}
         {{else}}
-          <i class="fas fa-circle-notch"></i>
+        <i class="fas fa-circle-notch"></i>
         {{/if}}
       </div>
-    {{/each}}
-  </div>
-
-  {{#if isMidnight}}
-  <p class="dice-clock-alert"><i class="fas fa-skull"></i> {{localize "DICECLOCK.DiceClock.Expired"}}</p>
-  {{/if}}
-
-  {{#if isGM}}
-  <div class="dice-clock-controls">
-    <button type="button" class="dice-clock-room btn btn-sm" title="{{localize 'DICECLOCK.DiceClock.RoomHint'}}">
-      <i class="fas fa-door-open"></i> {{localize "DICECLOCK.DiceClock.Room"}}
-    </button>
-    <button type="button" class="dice-clock-rest btn btn-sm" title="{{localize 'DICECLOCK.DiceClock.ShortRestHint'}}">
-      <i class="fas fa-bed"></i> {{localize "DICECLOCK.DiceClock.ShortRest"}}
-    </button>
-    <div class="dice-clock-manual">
-      <button type="button" class="dice-clock-minus btn btn-sm" title="-1 point"><i class="fas fa-minus"></i></button>
-      <span>{{localize "DICECLOCK.DiceClock.Adjust"}}</span>
-      <button type="button" class="dice-clock-plus btn btn-sm" title="+1 point"><i class="fas fa-plus"></i></button>
+      {{/each}}
     </div>
-    <button type="button" class="dice-clock-reset btn btn-sm" title="{{localize 'DICECLOCK.DiceClock.ResetDialog.Title'}}">
-      <i class="fas fa-undo"></i> {{localize "DICECLOCK.DiceClock.Reset"}}
-    </button>
-  </div>
+
+    {{#if this.ended}}
+    <p class="dice-clock-alert"><i class="fas fa-skull"></i> {{localize "DICECLOCK.Expired"}}</p>
+    {{/if}}
+
+    {{#if ../isGM}}
+    <div class="dice-clock-controls">
+      {{#each this.actions}}
+      <button type="button" class="dice-clock-action btn btn-sm" data-action-id="{{this.id}}" title="{{this.cost}}">
+        <i class="fas {{this.icon}}"></i> {{this.label}}
+      </button>
+      {{/each}}
+      <div class="dice-clock-manual">
+        <button type="button" class="dice-clock-minus btn btn-sm" title="{{localize 'DICECLOCK.MinusOne'}}"><i class="fas fa-minus"></i></button>
+        <span>{{localize "DICECLOCK.Adjust"}}</span>
+        <button type="button" class="dice-clock-plus btn btn-sm" title="{{localize 'DICECLOCK.PlusOne'}}"><i class="fas fa-plus"></i></button>
+        <button type="button" class="dice-clock-reset btn btn-sm" title="{{localize 'DICECLOCK.ResetDialog.Title'}}"><i class="fas fa-undo"></i></button>
+      </div>
+    </div>
+    {{/if}}
+  </section>
   {{else}}
-  <p class="dice-clock-readonly"><i class="fas fa-eye"></i> {{localize "DICECLOCK.DiceClock.ReadOnly"}}</p>
-  {{/if}}
+  <p class="dice-clock-readonly">
+    {{#if isGM}}{{localize "DICECLOCK.EmptyGm"}}{{else}}{{localize "DICECLOCK.EmptyPlayer"}}{{/if}}
+  </p>
+  {{/each}}
 </div>

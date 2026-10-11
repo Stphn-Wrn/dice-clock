@@ -12,9 +12,9 @@ export function loadTemplates(paths) {
   return load(paths);
 }
 
-export function playSound(options) {
+export function playSound(options, push = true) {
   const AudioHelperClass = foundry?.audio?.AudioHelper ?? globalThis.AudioHelper;
-  return AudioHelperClass.play(options, true);
+  return AudioHelperClass.play(options, push);
 }
 
 export function escapeHTML(value) {

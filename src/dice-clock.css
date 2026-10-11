@@ -21,11 +21,64 @@
   color: #d8d8d8 !important;
 }
 
-.dice-clock-widget {
+.dice-clock-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dice-clock-new {
+  display: flex;
+  gap: 6px;
+}
+
+.dice-clock-new select {
+  flex: 1;
+  min-width: 0;
+}
+
+.dice-clock-new button {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.dice-clock-card {
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: center;
+  padding: 10px;
+  background: #212121;
+  border: 1px solid #3a1414;
+  border-radius: 6px;
+}
+
+.dice-clock-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.dice-clock-name {
+  flex: 1;
+  font-weight: 700;
+  color: #e8e8e8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dice-clock-gm-only {
+  color: #8a8a8a;
+}
+
+.dice-clock-card-header a {
+  color: #8a8a8a;
+}
+
+.dice-clock-card-header a:hover {
+  color: #e8e8e8;
 }
 
 .dice-clock-header {
@@ -112,4 +165,40 @@
 
 .dice-clock-message p {
   margin: 2px 0;
+}
+
+.dice-clock-editor .form-fields input[type="number"] {
+  width: 4em;
+  flex: 0 0 auto;
+}
+
+.dice-clock-editor textarea {
+  width: 100%;
+}
+
+.dice-clock-editor-actions {
+  margin-top: 8px;
+}
+
+.dice-clock-action-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.dice-clock-action-row .action-label {
+  flex: 2;
+}
+
+.dice-clock-action-row .action-icon {
+  flex: 1.4;
+}
+
+.dice-clock-action-row .action-amount {
+  flex: 0 0 4em;
+}
+
+.dice-clock-action-row .action-unit {
+  flex: 0 0 auto;
 }

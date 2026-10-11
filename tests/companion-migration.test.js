@@ -1,9 +1,11 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { planMigration } from "../src/shared/companion-migration.js";
-import { CLIENT_RULES, WORLD_RULES } from "../src/migration-rules.js";
+import { CLIENT_RULES, WORLD_RULES, toClockSettings } from "../src/migration-rules.js";
 
-test("copies the clock settings the GM changed in the Companion", () => {
+const identity = (key) => key;
+
+test("keeps only the Companion clock values the GM changed", () => {
   const oldValues = { diceClockDiceCount: 4, diceClockFaces: 6, diceClockStartHour: 20 };
 
   const values = planMigration(oldValues, WORLD_RULES);
@@ -11,23 +13,42 @@ test("copies the clock settings the GM changed in the Companion", () => {
   assert.deepEqual(values, { diceClockDiceCount: 4, diceClockStartHour: 20 });
 });
 
-test("leaves the Companion's default sound and message behind, but keeps custom ones", () => {
-  const defaults = {
-    diceClockSoundPath: "modules/sodl-companion/sounds/vecna-clock.mp3",
-    diceClockCriticalMessage: "SODL.DiceClock.DefaultCriticalMessage"
-  };
-  const custom = { diceClockSoundPath: "sounds/bell.ogg", diceClockCriticalMessage: "Midnight strikes." };
+test("the Companion's clock becomes the first clock, with its settings and the points left", () => {
+  const changed = { diceClockDiceCount: 4, diceClockStartHour: 20, diceClockState: { remaining: 9, hour: 23 } };
 
-  assert.deepEqual(planMigration(defaults, WORLD_RULES), {});
-  assert.deepEqual(planMigration(custom, WORLD_RULES), custom);
+  const settings = toClockSettings(changed, { id: "old", t: identity });
+
+  assert.equal(settings.clocks.clocks.length, 1);
+  const [clock] = settings.clocks.clocks;
+  assert.equal(clock.id, "old");
+  assert.equal(clock.diceCount, 4);
+  assert.equal(clock.faces, 6);
+  assert.equal(clock.startHour, 20);
+  assert.equal(clock.pipMinutes, 20);
+  assert.equal(clock.remaining, 9);
+  assert.equal(clock.showTime, true);
+  assert.equal(settings.soundPath, undefined);
 });
 
-test("restores the clock state after its settings, so a settings change cannot reset it", () => {
-  const oldValues = { diceClockState: { remaining: 7, hour: 21 }, diceClockFaces: 8 };
+test("a custom final message and chime sound are kept, the old defaults are not", () => {
+  const custom = planMigration(
+    { diceClockSoundPath: "sounds/bell.ogg", diceClockCriticalMessage: "Midnight strikes.", diceClockFaces: 8 },
+    WORLD_RULES
+  );
+  const defaults = planMigration(
+    { diceClockSoundPath: "modules/sodl-companion/sounds/vecna-clock.mp3", diceClockCriticalMessage: "SODL.DiceClock.DefaultCriticalMessage" },
+    WORLD_RULES
+  );
 
-  const keys = Object.keys(planMigration(oldValues, WORLD_RULES));
+  const settings = toClockSettings(custom, { id: "old", t: identity });
 
-  assert.deepEqual(keys, ["diceClockFaces", "diceClockState"]);
+  assert.equal(settings.soundPath, "sounds/bell.ogg");
+  assert.equal(settings.clocks.clocks[0].criticalMessage, "Midnight strikes.");
+  assert.deepEqual(defaults, {});
+});
+
+test("a world that never touched the Companion's clock starts with no clock", () => {
+  assert.deepEqual(toClockSettings({}, { id: "old", t: identity }), {});
 });
 
 test("the clock has no per-user setting to bring over", () => {

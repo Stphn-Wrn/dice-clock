@@ -1,7 +1,7 @@
 {
   "id": "dice-clock",
-  "title": "Dice Clock",
-  "description": "A countdown clock made of dice, run by the GM: every full hour rings a chime and posts a message in the chat. Works with any system.",
+  "title": "Dice Clocks",
+  "description": "Countdowns made of dice, as many as you need: custom GM buttons, optional time of day with an hourly chime, shared with players or kept for the GM. Works with any system.",
   "version": "1.0.0",
   "compatibility": {
     "minimum": "11",

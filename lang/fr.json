@@ -1,60 +1,118 @@
 {
   "DICECLOCK": {
-    "DiceClock": {
-      "Title": "Horloge à Dés",
-      "OpenTool": "Ouvrir l'Horloge à Dés",
-      "HourFormat": "{hour}h00",
-      "Expired": "L'horloge est arrivée à son terme.",
-      "Room": "Pièce / Étage",
-      "RoomHint": "Fouiller une pièce / Changer d'étage (-1 point)",
+    "Title": "Horloges à dés",
+    "OpenTool": "Ouvrir les horloges",
+    "Untitled": "Horloge sans nom",
+    "NewClock": "Nouvelle horloge",
+    "Preset": "Modèle de la nouvelle horloge",
+    "Edit": "Modifier",
+    "Delete": "Supprimer",
+    "GmOnly": "Visible du MJ seulement",
+    "Adjust": "Ajuster",
+    "MinusOne": "Retirer un point",
+    "PlusOne": "Rendre un point",
+    "Expired": "L'horloge est arrivée à son terme.",
+    "EmptyGm": "Aucune horloge. Choisissez un modèle puis cliquez sur Nouvelle horloge.",
+    "EmptyPlayer": "Aucune horloge partagée pour l'instant.",
+    "PointsLeft": "{remaining} / {total} points",
+    "TimeFormat": {
+      "H24": "{hour}h{minute}",
+      "H12": "{hour}:{minute} {period}"
+    },
+    "Cost": {
+      "Points": "Coûte {count} point(s)",
+      "Hours": "Coûte {count} heure(s)"
+    },
+    "ResetDialog": {
+      "Title": "Remettre l'horloge à zéro",
+      "Content": "Remettre tous les dés à leur valeur maximale ?"
+    },
+    "DeleteDialog": {
+      "Title": "Supprimer l'horloge",
+      "Content": "Supprimer cette horloge ? Cette action est définitive."
+    },
+    "Chat": {
+      "ChimeTitle": "{name} sonne",
+      "ChimeBody": "Il est maintenant {time}.",
+      "ResetTitle": "{name} est remise à zéro",
+      "EndBody": "Les dés sont épuisés : le temps est écoulé."
+    },
+    "Actions": {
+      "SearchRoom": "Pièce / Étage",
       "ShortRest": "Repos court",
-      "ShortRestHint": "Repos court (-1 heure)",
-      "Adjust": "Ajustement",
-      "Reset": "Réinitialiser",
-      "ReadOnly": "Le MJ contrôle l'horloge.",
-      "ResetDialog": {
-        "Title": "Réinitialiser l'horloge",
-        "Content": "Remettre l'horloge à son état de départ ?"
+      "ExplorationTurn": "Tour d'exploration",
+      "OneHour": "Une heure",
+      "LongRest": "Repos long",
+      "Escalate": "La menace grandit",
+      "OnePoint": "Un point"
+    },
+    "Presets": {
+      "DeathHouse": {
+        "Name": "Maison de la Mort",
+        "Final": "Un grondement sourd s'élève des murs de la maison... Le Monticule de Chair (Walter) s'éveille et attaque !"
       },
-      "Chat": {
-        "ResetTitle": "L'horloge est remise à zéro.",
-        "ResetBody": "Il est {hour}. Les dés affichent leur valeur maximale.",
-        "ChimeTitle": "Ding... Dong...",
-        "ChimeBody": "L'horloge sonne. Il est maintenant {hour}."
+      "Torch": {
+        "Name": "Torche",
+        "Final": "La torche s'éteint. L'obscurité vous enveloppe."
       },
-      "DefaultCriticalMessage": "Les dés sont épuisés : le temps est écoulé."
+      "Day": {
+        "Name": "Journée",
+        "Final": "La journée est terminée."
+      },
+      "Threat": {
+        "Name": "Menace",
+        "Final": "La menace se réalise."
+      },
+      "Custom": {
+        "Name": "Horloge",
+        "Final": "Les dés sont épuisés : le temps est écoulé."
+      }
+    },
+    "Editor": {
+      "Title": "Horloge : {name}",
+      "Name": "Nom",
+      "Dice": "Dés",
+      "DiceOf": "dé(s) à",
+      "Faces": "faces",
+      "DiceHint": "Changer les dés remet l'horloge à son maximum.",
+      "ShowTime": "Afficher l'heure",
+      "StartHour": "Heure de départ",
+      "PipMinutes": "Minutes par point",
+      "Visibility": "Visible par",
+      "VisibilityPlayers": "Tout le monde (lecture seule)",
+      "VisibilityGm": "Le MJ seulement",
+      "Messages": "Messages du chat",
+      "MessagesPublic": "Publics",
+      "MessagesGm": "Chuchotés au MJ",
+      "Chime": "Carillon à chaque heure pleine",
+      "FinalMessage": "Message final",
+      "Actions": "Actions",
+      "ActionsHint": "Les boutons du MJ. Chacun retire des points, ou des heures converties avec les minutes par point.",
+      "ActionLabel": "Nom de l'action",
+      "ActionIcon": "Icône Font Awesome (fa-...)",
+      "AddAction": "Ajouter une action",
+      "UnitPoints": "point(s)",
+      "UnitHours": "heure(s)"
     },
     "Settings": {
-      "DiceClockDiceCount": {
-        "Name": "Nombre de dés",
-        "Hint": "Nombre de dés utilisés par l'horloge."
-      },
-      "DiceClockFaces": {
-        "Name": "Faces par dé",
-        "Hint": "Nombre de faces de chaque dé (6 pour des d6)."
-      },
-      "DiceClockPipMinutes": {
-        "Name": "Minutes par point",
-        "Hint": "Durée en minutes représentée par un point (pip) retiré."
-      },
-      "DiceClockStartHour": {
-        "Name": "Heure de départ",
-        "Hint": "Heure affichée au début du compte à rebours (18 pour 18h00)."
-      },
-      "DiceClockSoundPath": {
+      "SoundPath": {
         "Name": "Son du carillon",
-        "Hint": "Chemin vers le fichier audio joué à chaque heure pleine (ex: modules/dice-clock/sounds/carillon.mp3). Laisser vide pour désactiver le son."
+        "Hint": "Fichier audio joué à chaque heure pleine, pour les horloges qui ont le carillon activé. Laisser vide pour aucun son."
       },
-      "DiceClockCriticalMessage": {
-        "Name": "Message final",
-        "Hint": "Message envoyé dans le chat lorsque tous les points de l'horloge sont épuisés."
+      "TimeFormat": {
+        "Name": "Format de l'heure",
+        "Hint": "Comment l'heure des horloges est affichée.",
+        "H24": "24 heures (18h40)",
+        "H12": "12 heures (6:40 PM)"
       }
     },
     "Common": {
-      "Cancel": "Annuler"
+      "Cancel": "Annuler",
+      "Confirm": "Confirmer",
+      "Save": "Enregistrer"
     },
     "Migration": {
-      "Done": "Horloge à dés : votre horloge et ses réglages ont été repris du Compagnon SODL."
+      "Done": "Horloges à dés : votre horloge et ses réglages ont été repris du Compagnon SODL."
     }
   }
 }

@@ -68,10 +68,11 @@ async function applyValues(values) {
 }
 
 // Runs once per world (GM) and once per browser. Returns true when world data was imported.
-export async function migrateFromCompanion({ worldRules, clientRules }) {
+// `toWorldSettings` turns the changed old values into this module's settings, when they differ.
+export async function migrateFromCompanion({ worldRules, clientRules, toWorldSettings = (values) => values }) {
   let importedWorld = false;
   if (game.user.isGM && !game.settings.get(MODULE_ID, WORLD_FLAG)) {
-    const values = planMigration(readOldWorldValues(Object.keys(worldRules)), worldRules);
+    const values = toWorldSettings(planMigration(readOldWorldValues(Object.keys(worldRules)), worldRules));
     await applyValues(values);
     await game.settings.set(MODULE_ID, WORLD_FLAG, true);
     importedWorld = Object.keys(values).length > 0;
